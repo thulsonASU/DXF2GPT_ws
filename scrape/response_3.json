@@ -1,0 +1,184 @@
+{
+  "response": {
+    "numFound": 1332,
+    "start": 0,
+    "maxScore": 11.045241,
+    "docs": [
+      {
+        "id": "10.1371/journal.pone.0238384",
+        "journal": "PLOS ONE",
+        "eissn": "1932-6203",
+        "publication_date": "2020-08-27T00:00:00Z",
+        "article_type": "Research Article",
+        "author_display": [
+          "Chao-Yu Guo",
+          "Yu-Chin Chou"
+        ],
+        "abstract": [
+          "\nAn essential aspect of medical research is the prediction for a health outcome and the scientific identification of important factors. As a result, numerous methods were developed for model selections in recent years. In the era of big data, machine learning has been broadly adopted for data analysis. In particular, the Support Vector Machine (SVM) has an excellent performance in classifications and predictions with the high-dimensional data. In this research, a novel model selection strategy is carried out, named as the Stepwise Support Vector Machine (StepSVM). The new strategy is based on the SVM to conduct a modified stepwise selection, where the tuning parameter could be determined by 10-fold cross-validation that minimizes the mean squared error. Two popular methods, the conventional stepwise logistic regression model and the SVM Recursive Feature Elimination (SVM-RFE), were compared to the StepSVM. The Stability and accuracy of the three strategies were evaluated by simulation studies with a complex hierarchical structure. Up to five variables were selected to predict the dichotomous cancer remission of a lung cancer patient. Regarding the stepwise logistic regression, the mean of the C-statistic was 69.19%. The overall accuracy of the SVM-RFE was estimated at 70.62%. In contrast, the StepSVM provided the highest prediction accuracy of 80.57%. Although the StepSVM is more time consuming, it is more consistent and outperforms the other two methods.\n"
+        ],
+        "title_display": "A novel machine learning strategy for model selections - Stepwise Support Vector Machine (StepSVM)",
+        "score": 11.045241
+      },
+      {
+        "id": "10.1371/journal.pone.0271947",
+        "journal": "PLOS ONE",
+        "eissn": "1932-6203",
+        "publication_date": "2022-08-10T00:00:00Z",
+        "article_type": "Research Article",
+        "author_display": [
+          "Samantha D\u2019Alonzo",
+          "Max Tegmark"
+        ],
+        "abstract": [
+          "\nWe present an automated method for measuring media bias. Inferring which newspaper published a given article, based only on the frequencies with which it uses different phrases, leads to a conditional probability distribution whose analysis lets us automatically map newspapers and phrases into a bias space. By analyzing roughly a million articles from roughly a hundred newspapers for bias in dozens of news topics, our method maps newspapers into a two-dimensional bias landscape that agrees well with previous bias classifications based on human judgement. One dimension can be interpreted as traditional left-right bias, the other as establishment bias. This means that although news bias is inherently political, its measurement need not be.\n"
+        ],
+        "title_display": "Machine-learning media bias",
+        "score": 10.682452
+      },
+      {
+        "id": "10.1371/journal.pone.0294924",
+        "journal": "PLOS ONE",
+        "eissn": "1932-6203",
+        "publication_date": "2023-11-30T00:00:00Z",
+        "article_type": "Research Article",
+        "author_display": [
+          "Jacob Tjaden",
+          "Brian Tjaden"
+        ],
+        "abstract": [
+          "\nThe democratization of machine learning is a popular and growing movement. In a world with a wealth of publicly available data, it is important that algorithms for analysis of data are accessible and usable by everyone. We present MLpronto, a system for machine learning analysis that is designed to be easy to use so as to facilitate engagement with machine learning algorithms. With its web interface, MLpronto requires no computer programming or machine learning background, and it normally returns results in a matter of seconds. As input, MLpronto takes a file of data to be analyzed. MLpronto then executes some of the more commonly used supervised machine learning algorithms on the data and reports the results of the analyses. As part of its execution, MLpronto generates computer programming code corresponding to its machine learning analysis, which it also supplies as output. Thus, MLpronto can be used as a no-code solution for citizen data scientists with no machine learning or programming background, as an educational tool for those learning about machine learning, and as a first step for those who prefer to engage with programming code in order to facilitate rapid development of machine learning projects. MLpronto is freely available for use at https://mlpronto.org/.\n"
+        ],
+        "title_display": "MLpronto: A tool for democratizing machine learning",
+        "score": 10.6018
+      },
+      {
+        "id": "10.1371/journal.pone.0235750",
+        "journal": "PLOS ONE",
+        "eissn": "1932-6203",
+        "publication_date": "2020-07-27T00:00:00Z",
+        "article_type": "Research Article",
+        "author_display": [
+          "Dhanushi A. Wijeyakulasuriya",
+          "Elizabeth W. Eisenhauer",
+          "Benjamin A. Shaby",
+          "Ephraim M. Hanks"
+        ],
+        "abstract": [
+          "\nAnimal movement drives important ecological processes such as migration and the spread of infectious disease. Current approaches to modeling animal tracking data focus on parametric models used to understand environmental effects on movement behavior and to fill in missing tracking data. Machine Learning and Deep learning algorithms are powerful and flexible predictive modeling tools but have rarely been applied to animal movement data. In this study we present a general framework for predicting animal movement that is a combination of two steps: first predicting movement behavioral states and second predicting the animal\u2019s velocity. We specify this framework at the individual level as well as for collective movement. We use Random Forests, Neural and Recurrent Neural Networks to compare performance predicting one step ahead as well as long range simulations. We compare results against a custom constructed Stochastic Differential Equation (SDE) model. We apply this approach to high resolution ant movement data. We found that the individual level Machine Learning and Deep Learning methods outperformed the SDE model for one step ahead prediction. The SDE model did comparatively better at simulating long range movement behaviour. Of the Machine Learning and Deep Learning models the Long Short Term Memory (LSTM) individual level model did best at long range simulations. We also applied the Random Forest and LSTM individual level models to model gull migratory movement to demonstrate the generalizability of this framework. Machine Learning and deep learning models are easier to specify compared to traditional parametric movement models which can have restrictive assumptions. However, machine learning and deep learning models are less interpretable than parametric movement models. The type of model used should be determined by the goal of the study, if the goal is prediction, our study provides evidence that machine learning and deep learning models could be useful tools.\n"
+        ],
+        "title_display": "Machine learning for modeling animal movement",
+        "score": 10.575391
+      },
+      {
+        "id": "10.1371/journal.pcbi.0030116",
+        "journal": "PLoS Computational Biology",
+        "eissn": "1553-7358",
+        "publication_date": "2007-06-29T00:00:00Z",
+        "article_type": "Education",
+        "author_display": [
+          "Adi L Tarca",
+          "Vincent J Carey",
+          "Xue-wen Chen",
+          "Roberto Romero",
+          "Sorin Dr\u0103ghici"
+        ],
+        "abstract": [
+          ""
+        ],
+        "title_display": "Machine Learning and Its Applications to Biology",
+        "score": 10.567447
+      },
+      {
+        "id": "10.1371/journal.pone.0226572",
+        "journal": "PLOS ONE",
+        "eissn": "1932-6203",
+        "publication_date": "2019-12-19T00:00:00Z",
+        "article_type": "Research Article",
+        "author_display": [
+          "Jonathan E. Butner",
+          "Ascher K. Munion",
+          "Brian R. W. Baucom",
+          "Alexander Wong"
+        ],
+        "abstract": [
+          "\nIntegrating dynamic systems modeling and machine learning generates an exploratory nonlinear solution for analyzing dynamical systems-based data. Applying dynamical systems theory to the machine learning solution further provides a pathway to interpret the results. Using random forest models as an illustrative example, these models were able to recover the temporal dynamics of time series data simulated using a modified Cusp Catastrophe Monte Carlo. By extracting the points of no change (set points) and the predicted changes surrounding the set points, it is possible to characterize the topology of the system, both for systems governed by global equation forms and complex adaptive systems. RESULTS: The model for the simulation was able to recover the cusp catastrophe (i.e. the qualitative changes in the dynamics of the system) even when applied to data that have a significant amount of error variance. To further illustrate the approach, a real-world accelerometer example was examined, where the model differentiated between movement dynamics patterns by identifying set points related to cyclic motion during walking and attraction during stair climbing. These example findings suggest that integrating machine learning with dynamical systems modeling provides a viable means for classifying distinct temporal patterns, even when there is no governing equation for the nonlinear dynamics. Results of these integrated models yield solutions with both a prediction of where the system is going next and a decomposition of the topological features implied by the temporal dynamics.\n"
+        ],
+        "title_display": "Ghost hunting in the nonlinear dynamic machine",
+        "score": 10.556251
+      },
+      {
+        "id": "10.1371/journal.pone.0115892",
+        "journal": "PLoS ONE",
+        "eissn": "1932-6203",
+        "publication_date": "2014-12-31T00:00:00Z",
+        "article_type": "Research Article",
+        "author_display": [
+          "Hayda Almeida",
+          "Marie-Jean Meurs",
+          "Leila Kosseim",
+          "Greg Butler",
+          "Adrian Tsang"
+        ],
+        "abstract": [
+          "\nThis paper presents a machine learning system for supporting the first task of the biological literature manual curation process, called triage. We compare the performance of various classification models, by experimenting with dataset sampling factors and a set of features, as well as three different machine learning algorithms (Naive Bayes, Support Vector Machine and Logistic Model Trees). The results show that the most fitting model to handle the imbalanced datasets of the triage classification task is obtained by using domain relevant features, an under-sampling technique, and the Logistic Model Trees algorithm.\n"
+        ],
+        "title_display": "Machine Learning for Biomedical Literature Triage",
+        "score": 10.494771
+      },
+      {
+        "id": "10.1371/journal.pone.0272280",
+        "journal": "PLOS ONE",
+        "eissn": "1932-6203",
+        "publication_date": "2022-08-11T00:00:00Z",
+        "article_type": "Research Article",
+        "author_display": [
+          "Moe Kyaw Thu",
+          "Shotaro Beppu",
+          "Masaru Yarime",
+          "Sotaro Shibayama"
+        ],
+        "abstract": [
+          "\nThe progress of science increasingly relies on machine learning (ML) and machines work alongside humans in various domains of science. This study investigates the team structure of ML-related projects and analyzes the contribution of ML to scientific knowledge production under different team structure, drawing on bibliometric analyses of 25,000 scientific publications in various disciplines. Our regression analyses suggest that (1) interdisciplinary collaboration between domain scientists and computer scientists as well as the engagement of interdisciplinary individuals who have expertise in both domain and computer sciences are common in ML-related projects; (2) the engagement of interdisciplinary individuals seem more important in achieving high impact and novel discoveries, especially when a project employs computational and domain approaches interdependently; and (3) the contribution of ML and its implication to team structure depend on the depth of ML.\n"
+        ],
+        "title_display": "Role of machine and organizational structure in science",
+        "score": 10.402546
+      },
+      {
+        "id": "10.1371/journal.pone.0294114",
+        "journal": "PLOS ONE",
+        "eissn": "1932-6203",
+        "publication_date": "2023-11-09T00:00:00Z",
+        "article_type": "Research Article",
+        "author_display": [
+          "Yan Wei",
+          "Xili Rao",
+          "Yinjun Fu",
+          "Li Song",
+          "Huiling Chen",
+          "Junhong Li"
+        ],
+        "abstract": [
+          "\nThe employment of college students is an important issue that affects national development and social stability. In recent years, the increase in the number of graduates, the pressure of employment, and the epidemic have made the phenomenon of \u2019slow employment\u2019 increasingly prominent, becoming an urgent problem to be solved. Data mining and machine learning methods are used to analyze and predict the employment prospects for graduates and provide effective employment guidance and services for universities, governments, and graduates. It is a feasible solution to alleviate the problem of \u2019slow employment\u2019 of graduates. Therefore, this study proposed a feature selection prediction model (bGEBA-SVM) based on an improved bat algorithm and support vector machine by extracting 1694 college graduates from 2022 classes in Zhejiang Province. To improve the search efficiency and accuracy of the optimal feature subset, this paper proposed an enhanced bat algorithm based on the Gaussian distribution-based and elimination strategies for optimizing the feature set. The training data were input to the support vector machine for prediction. The proposed method is experimented by comparing it with peers, well-known machine learning models on the IEEE CEC2017 benchmark functions, public datasets, and graduate employment prediction dataset. The experimental results show that bGEBA-SVM can obtain higher prediction Accuracy, which can reach 93.86%. In addition, further education, student leader experience, family situation, career planning, and employment structure are more relevant characteristics that affect employment outcomes. In summary, bGEBA-SVM can be regarded as an employment prediction model with strong performance and high interpretability.\n"
+        ],
+        "title_display": "Machine learning prediction model based on enhanced bat algorithm and support vector machine for slow employment prediction",
+        "score": 10.382382
+      },
+      {
+        "id": "10.1371/journal.pbio.0020430",
+        "journal": "PLoS Biology",
+        "eissn": "1545-7885",
+        "publication_date": "2004-12-14T00:00:00Z",
+        "article_type": "Book Review/Science in the Media",
+        "author_display": [
+          "Jose M Carmena"
+        ],
+        "abstract": [
+          "\n        Dr. Octopus, the villain of the movie \"Spiderman 2\", is a fusion of man and machine. Neuroscientist Jose Carmena examines the facts behind this fictional account of a brain- machine interface.\n      "
+        ],
+        "title_display": "Brain versus Machine Control",
+        "score": 10.356532
+      }
+    ]
+  }
+}
