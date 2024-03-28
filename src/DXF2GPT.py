@@ -191,6 +191,7 @@ class DXF2GPT:
 if __name__ == '__main__':
     # dxf_file = '/dxf_files/Complex_Sketch.dxf'
     dxf_file = '/dxf_files/Points_Test.dxf'
+    # dxf_file = '/dxf_files/Aero_Test.dxf' # Not implemented for complex sketches
     d2g = DXF2GPT()
     d2g.read_dxf2csv(file_path=dxf_file)
     keys = d2g.csv2gridkeys()
