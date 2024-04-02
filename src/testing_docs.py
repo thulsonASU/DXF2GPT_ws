@@ -1,3 +1,8 @@
+'''
+The goal here was to integrate with Fusion 360 API to directly take the current sketch without mnually exporting the dxf file
+'''
+
+
 import adsk.core, adsk.fusion, traceback
 
 app = adsk.core.Application.get()

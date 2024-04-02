@@ -38,7 +38,7 @@ import os
 import json
 
 class DXF2GPT:
-    def __init__(self, cell_size = 1.75, build_dim = 546.1, file_name='/coordinates.jsonl'):
+    def __init__(self, cell_size = 1.75, build_dim = 546.1, file_name='/coordinates.jsonl', fresh_JSONL = True, debug = False, gif = False, batch = False, dict_key_layers = False):
         '''
         @Description: The constructor initializes the DXF2GPT class with the cell size and build volume dimensions.
         Units are in mm. Default deposition size is 1.75mm and build volume is 546.1mm x 546.1mm x 508mm.
@@ -58,6 +58,11 @@ class DXF2GPT:
        
         # Get path to work space with os
         self.dir_path = os.path.realpath('./src')
+        
+        # if no folder for dxf_files exists, create one
+        if not os.path.exists(self.dir_path + '/dxf_files'):
+            os.makedirs(self.dir_path + '/dxf_files')
+        
         # if no folder for csv_files exists, create one
         if not os.path.exists(self.dir_path + '/csv_files'):
             os.makedirs(self.dir_path + '/csv_files')
@@ -71,6 +76,7 @@ class DXF2GPT:
             os.makedirs(self.dir_path + '/jsonl_files')
             
         self.json_file = self.dir_path + '/jsonl_files' + file_name
+        self.dxf_files = os.listdir(self.dir_path + '/dxf_files/')
         
         # Initalize grid list
         self.grid = []
@@ -89,6 +95,16 @@ class DXF2GPT:
             for j in range(len(self.grid[0])):
                 self.dict[count] = (j, i)
                 count += 1
+        
+        # class booleans
+        self.fresh_JSONL = fresh_JSONL
+        self.debug = debug
+        self.gif = gif
+        self.batch = batch
+        self.dict_key_layers = dict_key_layers
+        
+        if self.fresh_JSONL == True:
+            self.cleanJSONL()
 
     def bresenham_line(self, x1, y1, x2, y2)->list:
         points = []
@@ -296,7 +312,7 @@ class DXF2GPT:
           
     def write_JSONL(self, keys, dxf_name):
         with open(self.json_file, 'a') as f:
-            # # create a dictionary for this file
+            # create a dictionary for this file
             data = {"messages":  [{"role": "system", "content": "This contains the dictionary keys that correspond to the grid space of the build volume. The grid space will be filled with 1s where a line is present and 0s when not. The output will be formatted in a python list to the best of the model's ability to predict the next key in the sequence."}, 
                                   {"role": "system", "content": "The sketch name is: " + dxf_name},
                                   {"role": "system", "content": "The grid size is: " + str((len(self.grid), len(self.grid[0])))},
@@ -309,112 +325,56 @@ class DXF2GPT:
                     }
             # write the dictionary to the file as a JSON object
             f.write(json.dumps(data) + '\n')
-
-if __name__ == '__main__':
-    # initialize the class object
-    d2g = DXF2GPT()
-    d2g.cleanJSONL() # uncomment me if you want to delete the jsonl file before running the script (will generate new data each time)
     
-    # ======================== Get user Input ========================
-    
-    debug = False
-    gif = False
-    while debug not in ['y', 'n']:
-        try:
-            debug = str(input('Would you like to debug? (y/n): '))
-            if debug.lower() not in ['y', 'n']:
-                raise ValueError('Please enter y or n.')
-            
-            # convert to boolean
-            if debug == 'y':
-                debug = True
-                break
-            elif debug == 'n':
-                debug = False
-                break
-            else:
-                raise ValueError('Please enter y or n. idk how you got here.')
-        except ValueError as e:
-            print(e)
-            debug = str(input('Would you like to debug? (y/n): '))
-    
-    if debug == True:
-        while gif not in ['y', 'n']:
-            try:
-                gif = str(input('Would you like to generate a gif? (y/n): '))
-                if gif.lower() not in ['y', 'n']:
-                    raise ValueError('Please enter y or n.')
+    def run(self, dxf_file='/Complex_II.dxf'):
+        '''
+        @Description: 
+        The run function will process the DXF file if batch is false and generate the dictionary keys for the grid space. 
+        Then if in debug the grid space will be decoded and the X and Y coordinates will be plotted. 
+        The JSONL file will be generated with the dictionary keys.
+        '''
+        if self.batch == True:
+            print(self.dxf_files)
+            for dxf_file in self.dxf_files:
+                print('Processing:', dxf_file)
+                self.read_dxf2csv(file_path=dxf_file)
+                print('CSV file generated.')
+                keys = self.csv2gridkeys()
+                print('Keys generated.')
+                x, y = self.decode_grid(keys)
+                print('Grid decoded.')
                 
-                # convert to boolean
-                if gif == 'y':
-                    gif = True
-                    break
-                elif gif == 'n':
-                    gif = False
-                    break
-                else:
-                    raise ValueError('Please enter y or n. idk how you got here.')
-            except ValueError as e:
-                print(e)
-                gif = str(input('Would you like to generate a gif? (y/n): '))
-    
-    # get user input for batch dxf file processing
-    batch = False
-    while batch not in ['y', 'n']:
-        try:
-            batch = str(input('Would you like to process all DXF Files in dxf_files? (y/n): '))
-            if batch.lower() not in ['y', 'n']:
-                raise ValueError('Please enter y or n.')
-            
-            # convert to boolean
-            if batch == 'y':
-                batch = True
-                break
-            elif batch == 'n':
-                batch = False
-                break
-            else:
-                raise ValueError('Please enter y or n. idk how you got here.')
-        except ValueError as e:
-            print(e)
-            batch = str(input('Would you like to process all DXF Files in dxf_files? (y/n): '))
-    
-    # ======================== Run the script :) ========================
-    
-    if batch == True:
-        # get all dxf files in the dxf_files directory
-        dxf_files = os.listdir(d2g.dir_path + '/dxf_files/')
-        print(dxf_files)
-        for dxf_file in dxf_files:
+                if self.debug == True:
+                    print('Max X:', max(x))
+                    print('Max Y:', max(y))
+                    itr = dxf_file.split('/')[-1].split('.')[0]
+                    self.grid2plot(itr=itr)
+                    self.plot_XY(itr, x, y, gif=self.gif)
+                
+                self.write_JSONL(keys, dxf_name=dxf_file.split('/')[-1].split('.')[0])
+                
+        elif self.batch == False:
             print('Processing:', dxf_file)
-            d2g = DXF2GPT()
-            d2g.read_dxf2csv(file_path=dxf_file)
+            self.read_dxf2csv(file_path=dxf_file)
             print('CSV file generated.')
-            keys = d2g.csv2gridkeys()
+            keys = self.csv2gridkeys()
             print('Keys generated.')
-            x, y = d2g.decode_grid(keys)
+            x, y = self.decode_grid(keys)
             print('Grid decoded.')
             
-            if debug == True:
+            if self.debug == True:
                 print('Max X:', max(x))
                 print('Max Y:', max(y))
                 itr = dxf_file.split('/')[-1].split('.')[0]
-                d2g.grid2plot(itr=itr)
-                d2g.plot_XY(itr, x, y, gif=gif)
+                self.grid2plot(itr=itr)
+                self.plot_XY(itr, x, y, gif=self.gif)
             
-            d2g.write_JSONL(keys, dxf_name=dxf_file.split('/')[-1].split('.')[0])
-            
-    elif batch == False:
-        dxf_file = '/Complex_II.dxf' # Edit me to change the dxf file you want to process
-        d2g.read_dxf2csv(file_path=dxf_file)
-        keys = d2g.csv2gridkeys()
-        x, y = d2g.decode_grid(keys)
-        
-        if debug == True:
-            print('Max X:', max(x))
-            print('Max Y:', max(y))
-            itr = dxf_file.split('/')[-1].split('.')[0]
-            d2g.grid2plot(itr=itr)
-            d2g.plot_XY(itr, x, y, gif=gif)
-        
-        d2g.write_JSONL(keys, dxf_name=dxf_file.split('/')[-1].split('.')[0])
+            self.write_JSONL(keys, dxf_name=dxf_file.split('/')[-1].split('.')[0])
+
+if __name__ == '__main__':
+    # initialize the class object
+    d2g = DXF2GPT(debug=True, gif=True, batch=False)
+    d2g.run(dxf_file='/Triangle_50.dxf')
+    print('Done. :)')
+    
+    
