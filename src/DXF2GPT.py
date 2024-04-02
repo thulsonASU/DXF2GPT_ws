@@ -297,10 +297,11 @@ class DXF2GPT:
     def write_JSONL(self, keys, dxf_name):
         with open(self.json_file, 'a') as f:
             # # create a dictionary for this file
-            data = {"messages": [{"role": "system", "content": "This contains the dictionary keys that correspond to the grid space of the build volume. The grid space will be filled with 1s where a line is present and 0s when not. The output will be formatted in a python list to the best of the model's ability to predict the next key in the sequence."}, 
+            data = {"messages":  [{"role": "system", "content": "This contains the dictionary keys that correspond to the grid space of the build volume. The grid space will be filled with 1s where a line is present and 0s when not. The output will be formatted in a python list to the best of the model's ability to predict the next key in the sequence."}, 
                                   {"role": "system", "content": "The sketch name is: " + dxf_name},
                                   {"role": "system", "content": "The grid size is: " + str((len(self.grid), len(self.grid[0])))},
-                                  {"role": "system", "content": "The cell size is: " + str(self.cell_size)},
+                                  {"role": "system", "content": "The grid area and largest possible dictionary key is: " + str(len(self.grid)**2)},
+                                  {"role": "system", "content": "The size of each cell in the grid in millimeters is: " + str(self.cell_size)},
                                   {"role": "system", "content": "The build volume is: 546.1mm x 546.1mm x 508mm"},
                                   {"role": "system", "content": "The build area in millimeters is: " + str(self.build_dim**2)},
                                   {"role": "user", "content": "I would like to generate a toolpath for a 3D print cell using dictionary keys."},
