@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Description: This class provides the functionality to convert a DXF file to a JSONL file 
-for use with fine-tuning a GPT-3.5/GPT-4 model. The model will be trained on dictionary keys that correspond to
+for use with fine-tuning a GPT-3.5 model. The model will be trained on dictionary keys that correspond to
 a grid space of the build volume. The grid space will be filled with 1's where a line is present and 0's when not.
 The JSONL file will contain the dictionary keys that correspond to the grid space of the build volume.
 The JSONL will be formatted to the best of the GPT-3.5/GPT-4 model's ability to predict the next key in the sequence.
@@ -32,7 +32,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import ezdxf
 import imageio # gif generation
-from scipy.spatial import distance
+# from scipy.spatial import distance
 import numpy as np
 import os
 import json
