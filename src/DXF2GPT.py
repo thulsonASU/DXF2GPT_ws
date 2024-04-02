@@ -372,8 +372,73 @@ class DXF2GPT:
             self.write_JSONL(keys, dxf_name=dxf_file.split('/')[-1].split('.')[0])
 
 if __name__ == '__main__':
+    # ======================== Get user Input ========================
+    
+    debug = False
+    gif = False
+    batch = False
+    while debug not in ['y', 'n']:
+        try:
+            debug = str(input('Would you like to debug? (y/n): '))
+            if debug.lower() not in ['y', 'n']:
+                raise ValueError('Please enter y or n.')
+            
+            # convert to boolean
+            if debug == 'y':
+                debug = True
+                break
+            elif debug == 'n':
+                debug = False
+                break
+            else:
+                raise ValueError('Please enter y or n. idk how you got here.')
+        except ValueError as e:
+            print(e)
+            debug = str(input('Would you like to debug? (y/n): '))
+    
+    if debug == True:
+        while gif not in ['y', 'n']:
+            try:
+                gif = str(input('Would you like to generate a gif? (y/n): '))
+                if gif.lower() not in ['y', 'n']:
+                    raise ValueError('Please enter y or n.')
+                
+                # convert to boolean
+                if gif == 'y':
+                    gif = True
+                    break
+                elif gif == 'n':
+                    gif = False
+                    break
+                else:
+                    raise ValueError('Please enter y or n. idk how you got here.')
+            except ValueError as e:
+                print(e)
+                gif = str(input('Would you like to generate a gif? (y/n): '))
+
+    while batch not in ['y', 'n']:
+        try:
+            batch = str(input('Would you like to process all DXF Files in dxf_files? (y/n): '))
+            if batch.lower() not in ['y', 'n']:
+                raise ValueError('Please enter y or n.')
+            
+            # convert to boolean
+            if batch == 'y':
+                batch = True
+                break
+            elif batch == 'n':
+                batch = False
+                break
+            else:
+                raise ValueError('Please enter y or n. idk how you got here.')
+        except ValueError as e:
+            print(e)
+            batch = str(input('Would you like to process all DXF Files in dxf_files? (y/n): '))
+    
+    # ======================== Run the script :) ========================
+    
     # initialize the class object
-    d2g = DXF2GPT(debug=True, gif=True, batch=False)
+    d2g = DXF2GPT(debug=debug, gif=gif, batch=batch)
     d2g.run(dxf_file='/Triangle_50.dxf')
     print('Done. :)')
     
