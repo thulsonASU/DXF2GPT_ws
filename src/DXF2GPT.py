@@ -56,8 +56,8 @@ class DXF2GPT:
         # Build volume size 21.5 inch x 21.5 inch x 20 inch
         self.build_dim = build_dim
        
-        # Get path to work space with os
-        self.dir_path = os.path.realpath('./src')
+        # Get path to current directory (Used for file paths)
+        self.dir_path = os.path.realpath('.')
         
         # if no folder for dxf_files exists, create one
         if not os.path.exists(self.dir_path + '/dxf_files'):
@@ -134,7 +134,8 @@ class DXF2GPT:
         points.append((x, y))
         return points
 
-    def read_dxf2csv(self, file_path):
+    def read_dxf2csv(self, file_path): 
+        
         # Load the DXF document
         doc = ezdxf.readfile(self.dir_path + '/dxf_files/' + file_path)
         # Get the modelspace which contains the entities
