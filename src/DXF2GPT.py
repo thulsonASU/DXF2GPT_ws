@@ -32,7 +32,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import ezdxf
 import imageio # gif generation
-# from scipy.spatial import distance
 import numpy as np
 import os
 import json
@@ -439,8 +438,8 @@ if __name__ == '__main__':
     # ======================== Run the script :) ========================
     
     # initialize the class object
-    d2g = DXF2GPT(debug=debug, gif=gif, batch=batch)
-    d2g.run(dxf_file='/Triangle_50.dxf')
+    d2g = DXF2GPT(debug=debug, gif=gif, batch=batch, fresh_JSONL = False)
+    d2g.run(dxf_file='/square_50.dxf')
     print('Done. :)')
     
     
